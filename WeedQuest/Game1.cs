@@ -45,6 +45,11 @@ namespace WeedQuest
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
 
+            FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+            FlatRedBallServices.Game.IsMouseVisible = true;
+            SpriteManager.MaxParticleCount = 4000;
+            FlatRedBallServices.GraphicsOptions.BackgroundColor = Color.White;
+
 			FlatRedBall.Screens.ScreenManager.Start(typeof(WeedQuest.Screens.MenuScreen));
 
             base.Initialize();

@@ -12,17 +12,17 @@ namespace WeedQuest.Entities
 {
 	public partial class ExitButton
 	{
-		        void OnPush (FlatRedBall.Gui.IWindow callingWindow)
+		void OnPush (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            this.SpriteInstance.CurrentChainName = "ButtonDown";            
         }
         void OnLosePush (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            this.SpriteInstance.CurrentChainName = "ButtonUp";
         }
         void OnClick (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            FlatRedBallServices.Game.Exit();
         }
 
 	}

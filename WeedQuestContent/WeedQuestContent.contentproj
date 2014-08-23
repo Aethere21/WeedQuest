@@ -61,6 +61,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EmitterListFile</Name>
     </None>
+    <None Include="Screens\MenuScreen\EmitterListFileRight.emix">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EmitterListFileRight</Name>
+    </None>
+    <None Include="Screens\MenuScreen\StartScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>StartScreen</Name>
+    </None>
     <None Include="Screens\MenuScreen\weedsmokeparticle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>weedsmokeparticle</Name>

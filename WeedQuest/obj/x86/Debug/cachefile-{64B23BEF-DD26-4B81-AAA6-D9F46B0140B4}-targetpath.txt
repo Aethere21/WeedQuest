@@ -5,4 +5,3 @@ Content\Screens\MenuScreen\EmitterListFile.emix
 Content\Screens\MenuScreen\EmitterListFileRight.emix
 Content\Screens\MenuScreen\StartScreen.png
 Content\Screens\MenuScreen\weedsmokeparticle.png
-redball.BMP

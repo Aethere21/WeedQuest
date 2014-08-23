@@ -32,13 +32,20 @@ namespace WeedQuest.Screens
 
 		void CustomInitialize()
 		{
+            EmitterListFile[0].Position.X = -455;
+            EmitterListFile[0].Position.Y = -115;
+            EmitterListFile[0].Position.Z = 5;
 
-
+            EmitterListFileRight[0].Position.X = 455;
+            EmitterListFileRight[0].Position.Y = -115;
+            EmitterListFileRight[0].Position.Z = 5;
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            InputManager.Keyboard.ControlPositionedObject(AxisAlignedRectangleInstance, 100);
 
+            FlatRedBall.Debugging.Debugger.Write(AxisAlignedRectangleInstance.X + " " + AxisAlignedRectangleInstance.Y);
 
 		}
 

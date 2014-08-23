@@ -12,17 +12,17 @@ namespace WeedQuest.Entities
 {
 	public partial class StartButton
 	{
-		        void OnClick (FlatRedBall.Gui.IWindow callingWindow)
+        void OnClick (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            ScreenManager.CurrentScreen.MoveToScreen(typeof(GameScreen));
         }
         void OnPush (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            this.SpriteInstance.CurrentChainName = "ButtonDown";
         }
         void OnLosePush (FlatRedBall.Gui.IWindow callingWindow)
         {
-            
+            this.SpriteInstance.CurrentChainName = "ButtonUp";
         }
 
 	}

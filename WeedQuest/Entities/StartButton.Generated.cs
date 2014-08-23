@@ -198,6 +198,8 @@ namespace WeedQuest.Entities
 				SpriteInstance.AttachTo(this, false);
 			}
 			SpriteInstance.TextureScale = 1f;
+			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.CurrentChainName = "ButtonUp";
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)
@@ -219,6 +221,8 @@ namespace WeedQuest.Entities
 			{
 			}
 			SpriteInstance.TextureScale = 1f;
+			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.CurrentChainName = "ButtonUp";
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{

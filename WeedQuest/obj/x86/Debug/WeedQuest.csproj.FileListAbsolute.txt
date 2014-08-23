@@ -8,3 +8,10 @@ C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\WeedQuest.exe
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\WeedQuest.pdb
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\ExitButton\AnimationChainListFile.achx
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\ExitButton\Buttons.jpg
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\StartButton\AnimationChainListFile.achx
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\MenuScreen\EmitterListFile.emix
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\MenuScreen\StartScreen.png
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\MenuScreen\weedsmokeparticle.png
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\MenuScreen\EmitterListFileRight.emix
