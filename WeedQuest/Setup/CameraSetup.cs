@@ -14,6 +14,10 @@ namespace WeedQuest
 	{
 			internal static void SetupCamera (Camera cameraToSetUp, GraphicsDeviceManager graphicsDeviceManager)
 			{
+				FlatRedBallServices.GraphicsOptions.SetResolution(1024, 768);
+				#if WINDOWS_PHONE || WINDOWS_8 || IOS || ANDROID
+				graphicsDeviceManager.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+				#endif
 				cameraToSetUp.UsePixelCoordinates();
 			}
 			internal static void ResetCamera (Camera cameraToReset)

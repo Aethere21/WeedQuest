@@ -1,0 +1,10 @@
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\redball.BMP
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\WeedQuest.exe.config
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\WeedQuest.exe
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\WeedQuest.pdb
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\FlatRedBall.dll
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\FlatRedBall.xml
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\WeedQuest.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\WeedQuest.exe
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\obj\x86\Debug\WeedQuest.pdb
