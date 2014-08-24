@@ -1,6 +1,8 @@
 Content\Entities\ExitButton\AnimationChainListFile.achx
 Content\Entities\ExitButton\Buttons.jpg
 Content\Entities\PlatformerCharacterBase\MovementValues.csv
+Content\Entities\Player\AnimationChainListFile.achx
+Content\Entities\Player\PlayerSet.png
 Content\Entities\StartButton\AnimationChainListFile.achx
 Content\Screens\GameScreen\City.scnx
 Content\Screens\GameScreen\Tileset.png

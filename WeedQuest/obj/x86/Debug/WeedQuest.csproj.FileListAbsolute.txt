@@ -18,3 +18,5 @@ C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\GameScreen\City.scnx
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Screens\GameScreen\Tileset.png
 C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\PlatformerCharacterBase\MovementValues.csv
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\Player\AnimationChainListFile.achx
+C:\Users\pc\Documents\FlatRedBallProjects\WeedQuest\WeedQuest\WeedQuest\bin\x86\Debug\Content\Entities\Player\PlayerSet.png

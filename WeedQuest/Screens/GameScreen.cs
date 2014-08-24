@@ -22,6 +22,7 @@ using FlatRedBall.Localization;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+using Microsoft.Xna.Framework;
 #endif
 #endregion
 
@@ -35,7 +36,7 @@ namespace WeedQuest.Screens
             SetLevelByName("City");
 
             Camera.Main.Orthogonal = true;
-            Camera.Main.OrthogonalWidth = 400;
+            Camera.Main.OrthogonalWidth = 600;
             Camera.Main.OrthogonalHeight = 400;
             
 
@@ -43,16 +44,7 @@ namespace WeedQuest.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-            if (InputManager.Keyboard.KeyReleased(Keys.Z))
-            {
-                Camera.Main.Orthogonal = false;
-            }
-            if(InputManager.Keyboard.KeyReleased(Keys.X))
-            {
-                Camera.Main.Orthogonal = true;
-            }
-
-            InputManager.Keyboard.ControlPositionedObject(Camera.Main, 150);
+            CollisionActivity();
 		}
 
 		void CustomDestroy()
@@ -69,7 +61,26 @@ namespace WeedQuest.Screens
 
         void SetUpTiles()
         {
+            foreach (Sprite spr in VisibleRepresentation.Sprites)
+            {
+                if (spr.Name == "Spawn")
+                {
+                    PlayerInstance.Position.X = spr.Position.X;
+                    PlayerInstance.Position.Y = spr.Position.Y;
+                    spr.Visible = false;
+                }
 
+                if (spr.Name == "Collision")
+                {
+                    AddShapes(spr.Position, spr.ScaleX, spr.ScaleY, Color.Red, true);
+                }
+
+                if(spr.Name == "WallCollision")
+                {
+                    AddShapes(spr.Position, spr.ScaleX, spr.ScaleY, Color.Red, true);
+                    spr.Visible = false;
+                }
+            }
         }
 
         void SetLevelByName(string levelName)
@@ -81,5 +92,19 @@ namespace WeedQuest.Screens
             VisibleRepresentation.AddToManagers();
         }
 
+
+        void AddShapes(Vector3 Position, float scaleX, float scaleY, Color color, bool Visible)
+        {
+            AxisAlignedRectangle rekd = new AxisAlignedRectangle(scaleX, scaleY);
+            rekd.Position = Position;
+            rekd.Color = color;
+            rekd.Visible = Visible;
+            TileCollision.AxisAlignedRectangles.Add(rekd);
+        }
+
+        private void CollisionActivity()
+        {
+            PlayerInstance.CollideAgainst(TileCollision);
+        }
 	}
 }

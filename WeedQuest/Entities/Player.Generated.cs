@@ -55,6 +55,7 @@ namespace WeedQuest.Entities
 		protected static FlatRedBall.Graphics.Animation.AnimationChainList AnimationChainListFile;
 		protected static Microsoft.Xna.Framework.Graphics.Texture2D PlayerSet;
 		
+		private FlatRedBall.Sprite SpriteInstance;
 		public event EventHandler BeforeGroundMovementSet;
 		public event EventHandler AfterGroundMovementSet;
 		public override WeedQuest.DataTypes.MovementValues GroundMovement
@@ -144,6 +145,8 @@ namespace WeedQuest.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			SpriteInstance = new FlatRedBall.Sprite();
+			SpriteInstance.Name = "SpriteInstance";
 			
 			base.InitializeEntity(addToManagers);
 
@@ -154,10 +157,12 @@ namespace WeedQuest.Entities
 		public override void ReAddToManagers (Layer layerToAddTo)
 		{
 			base.ReAddToManagers(layerToAddTo);
+			SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
 		}
 		public override void AddToManagers (Layer layerToAddTo)
 		{
 			LayerProvidedByContainer = layerToAddTo;
+			SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
 			base.AddToManagers(layerToAddTo);
 			CustomInitialize();
 		}
@@ -177,6 +182,10 @@ namespace WeedQuest.Entities
 			// Generated Destroy
 			base.Destroy();
 			
+			if (SpriteInstance != null)
+			{
+				SpriteManager.RemoveSprite(SpriteInstance);
+			}
 
 
 			CustomDestroy();
@@ -195,6 +204,14 @@ namespace WeedQuest.Entities
 			}
 			base.Collision.Height = 64f;
 			base.Collision.Width = 32f;
+			if (SpriteInstance.Parent == null)
+			{
+				SpriteInstance.CopyAbsoluteToRelative();
+				SpriteInstance.AttachTo(this, false);
+			}
+			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.TextureScale = 1f;
+			SpriteInstance.CurrentChainName = "StandingRight";
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public override void AddToManagersBottomUp (Layer layerToAddTo)
@@ -205,6 +222,10 @@ namespace WeedQuest.Entities
 		{
 			base.RemoveFromManagers();
 			base.RemoveFromManagers();
+			if (SpriteInstance != null)
+			{
+				SpriteManager.RemoveSpriteOneWay(SpriteInstance);
+			}
 		}
 		public override void AssignCustomVariables (bool callOnContainedElements)
 		{
@@ -214,6 +235,9 @@ namespace WeedQuest.Entities
 			}
 			base.mCollision.Height = 64f;
 			base.mCollision.Width = 32f;
+			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.TextureScale = 1f;
+			SpriteInstance.CurrentChainName = "StandingRight";
 			GroundMovement = Player.MovementValues["ImmediateVelocityOnGround"];
 			AirMovement = Player.MovementValues["ImmediateVelocityBeforeDoubleJump"];
 			AfterDoubleJump = Player.MovementValues["ImmediateVelocityInAir"];
@@ -223,6 +247,7 @@ namespace WeedQuest.Entities
 			base.ConvertToManuallyUpdated();
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
+			SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
 		}
 		public static new void LoadStaticContent (string contentManagerName)
 		{
@@ -335,10 +360,16 @@ namespace WeedQuest.Entities
 		{
 			base.SetToIgnorePausing();
 			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(Collision);
+			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
 		}
 		public override void MoveToLayer (Layer layerToMoveTo)
 		{
 			base.MoveToLayer(layerToMoveTo);
+			if (LayerProvidedByContainer != null)
+			{
+				LayerProvidedByContainer.Remove(SpriteInstance);
+			}
+			SpriteManager.AddToLayer(SpriteInstance, layerToMoveTo);
 			LayerProvidedByContainer = layerToMoveTo;
 		}
 

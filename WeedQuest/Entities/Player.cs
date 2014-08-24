@@ -28,6 +28,19 @@ namespace WeedQuest.Entities
 {
 	public partial class Player
 	{
+
+        public enum LeftOrRight
+        {
+            Left,
+            Right
+        }
+
+        public LeftOrRight DirectionFacing
+        {
+            get;
+            private set;
+        }
+
 		private void CustomInitialize()
 		{
 
@@ -36,8 +49,8 @@ namespace WeedQuest.Entities
 
 		private void CustomActivity()
 		{
-
-
+            AnimationActivity();
+            CameraActivity();
 		}
 
 		private void CustomDestroy()
@@ -51,5 +64,57 @@ namespace WeedQuest.Entities
 
 
         }
+
+        private void AnimationActivity()
+        {
+            if(HorizontalRatio > 0)
+            {
+                this.DirectionFacing = LeftOrRight.Right;
+            }
+            else if(HorizontalRatio < 0)
+            {
+                this.DirectionFacing = LeftOrRight.Left;
+            }
+            
+            if(IsOnGround){
+                if (HorizontalRatio > 0)
+                {
+                    this.SpriteInstance.CurrentChainName = "WalkingRight";
+                }
+                else if (HorizontalRatio < 0)
+                {
+                    this.SpriteInstance.CurrentChainName = "WalkingLeft";
+                }
+                else
+                {
+                    if(DirectionFacing == LeftOrRight.Right)
+                    {
+                        this.SpriteInstance.CurrentChainName = "StandingRight";
+                    }
+                    else
+                    {
+                        this.SpriteInstance.CurrentChainName = "StandingLeft";
+                    }
+                }
+            }
+            else
+            {
+                if(DirectionFacing == LeftOrRight.Left)
+                {
+                    this.SpriteInstance.CurrentChainName = "JumpLeft";
+                }
+                else
+                {
+                    this.SpriteInstance.CurrentChainName = "JumpRight";
+                }
+            }
+        }
+
+        private void CameraActivity()
+        {
+            Camera.Main.Velocity.X = this.X - Camera.Main.Position.X;
+            Camera.Main.Velocity.Y = this.Y - Camera.Main.Position.Y + 70;
+        }
+
 	}
 }

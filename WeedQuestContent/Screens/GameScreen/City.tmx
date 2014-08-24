@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="50" height="15" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="15" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
   <image source="Tileset.png" width="256" height="192"/>
+  <tile id="3">
+   <properties>
+    <property name="Name" value="Collision"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Name" value="WallCollision"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="Name" value="Spawn"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Main" width="50" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQE/AMkwwJxBzYcGceDAhNVxY2Ohi+MS5cPDRzUOWExzFo3gUj+IhggHidBaO
+   eJxjYBgFo2AUjIJRQG/AMsQxDHBhwZx4MCE1XFjY6GL4xLlw8NHNg2EYEBzieNQfgwuP+mNw4eHkDwB4IhWo
+  </data>
+ </layer>
+ <layer name="Layer 2" width="50" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjZRj6gBWKhzoY9cfgAuj+kBgoh1AIhmt8DFUw6o/BBUb9MbjAqD8GFxj1x+ACID8AAEkoAK8=
   </data>
  </layer>
 </map>

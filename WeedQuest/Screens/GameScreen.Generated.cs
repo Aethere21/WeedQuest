@@ -41,6 +41,7 @@ namespace WeedQuest.Screens
 		
 		private FlatRedBall.Scene VisibleRepresentation;
 		private FlatRedBall.Math.Geometry.ShapeCollection TileCollision;
+		private WeedQuest.Entities.Player PlayerInstance;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -55,6 +56,8 @@ namespace WeedQuest.Screens
 			VisibleRepresentation.Name = "VisibleRepresentation";
 			TileCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
 			TileCollision.Name = "TileCollision";
+			PlayerInstance = new WeedQuest.Entities.Player(ContentManagerName, false);
+			PlayerInstance.Name = "PlayerInstance";
 			
 			
 			PostInitialize();
@@ -71,6 +74,7 @@ namespace WeedQuest.Screens
 		{
 			VisibleRepresentation.AddToManagers();
 			TileCollision.AddToManagers();
+			PlayerInstance.AddToManagers(mLayer);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -83,6 +87,7 @@ namespace WeedQuest.Screens
 			if (!IsPaused)
 			{
 				
+				PlayerInstance.Activity();
 			}
 			else
 			{
@@ -129,6 +134,11 @@ namespace WeedQuest.Screens
 			{
 				TileCollision.RemoveFromManagers(ContentManagerName != "Global");
 			}
+			if (PlayerInstance != null)
+			{
+				PlayerInstance.Destroy();
+				PlayerInstance.Detach();
+			}
 
 			base.Destroy();
 
@@ -158,16 +168,19 @@ namespace WeedQuest.Screens
 			{
 				TileCollision.RemoveFromManagers(false);
 			}
+			PlayerInstance.RemoveFromManagers();
 		}
 		public virtual void AssignCustomVariables (bool callOnContainedElements)
 		{
 			if (callOnContainedElements)
 			{
+				PlayerInstance.AssignCustomVariables(true);
 			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
 			VisibleRepresentation.ConvertToManuallyUpdated();
+			PlayerInstance.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -193,6 +206,7 @@ namespace WeedQuest.Screens
 			{
 			}
 			Tileset = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/tileset.png", contentManagerName);
+			WeedQuest.Entities.Player.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		[System.Obsolete("Use GetFile instead")]
