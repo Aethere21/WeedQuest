@@ -194,7 +194,9 @@ namespace WeedQuest.Screens
 		{
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
+			BackgroundSprite.Height = 768f;
 			BackgroundSprite.Texture = StartScreen;
+			BackgroundSprite.Width = 1024f;
 			if (BackgroundSprite.Parent == null)
 			{
 				BackgroundSprite.X = 0f;
@@ -219,11 +221,9 @@ namespace WeedQuest.Screens
 			{
 				BackgroundSprite.RelativeZ = 0f;
 			}
-			BackgroundSprite.Width = 1024f;
-			BackgroundSprite.Height = 768f;
 			BackgroundSprite.PixelSize = 0.5f;
-			AxisAlignedRectangleInstance.Width = 32f;
 			AxisAlignedRectangleInstance.Height = 32f;
+			AxisAlignedRectangleInstance.Width = 32f;
 			if (ExitButtonInstance.Parent == null)
 			{
 				ExitButtonInstance.X = 320f;
@@ -299,7 +299,9 @@ namespace WeedQuest.Screens
 				ExitButtonInstance.AssignCustomVariables(true);
 				StartButtonInstance.AssignCustomVariables(true);
 			}
+			BackgroundSprite.Height = 768f;
 			BackgroundSprite.Texture = StartScreen;
+			BackgroundSprite.Width = 1024f;
 			if (BackgroundSprite.Parent == null)
 			{
 				BackgroundSprite.X = 0f;
@@ -324,11 +326,9 @@ namespace WeedQuest.Screens
 			{
 				BackgroundSprite.RelativeZ = 0f;
 			}
-			BackgroundSprite.Width = 1024f;
-			BackgroundSprite.Height = 768f;
 			BackgroundSprite.PixelSize = 0.5f;
-			mAxisAlignedRectangleInstance.Width = 32f;
 			mAxisAlignedRectangleInstance.Height = 32f;
+			mAxisAlignedRectangleInstance.Width = 32f;
 			if (ExitButtonInstance.Parent == null)
 			{
 				ExitButtonInstance.X = 320f;

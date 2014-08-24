@@ -32,14 +32,27 @@ namespace WeedQuest.Screens
 
 		void CustomInitialize()
 		{
+            SetLevelByName("City");
 
+            Camera.Main.Orthogonal = true;
+            Camera.Main.OrthogonalWidth = 400;
+            Camera.Main.OrthogonalHeight = 400;
+            
 
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            if (InputManager.Keyboard.KeyReleased(Keys.Z))
+            {
+                Camera.Main.Orthogonal = false;
+            }
+            if(InputManager.Keyboard.KeyReleased(Keys.X))
+            {
+                Camera.Main.Orthogonal = true;
+            }
 
-
+            InputManager.Keyboard.ControlPositionedObject(Camera.Main, 150);
 		}
 
 		void CustomDestroy()
@@ -52,6 +65,20 @@ namespace WeedQuest.Screens
         {
 
 
+        }
+
+        void SetUpTiles()
+        {
+
+        }
+
+        void SetLevelByName(string levelName)
+        {
+            GlobalData.CurrentLevelInfo.LevelName = levelName;
+            VisibleRepresentation = (Scene)GetMember(levelName);
+            SetUpTiles();
+            //TileCollision.
+            VisibleRepresentation.AddToManagers();
         }
 
 	}

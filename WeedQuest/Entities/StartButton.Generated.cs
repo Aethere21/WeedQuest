@@ -197,8 +197,8 @@ namespace WeedQuest.Entities
 				SpriteInstance.CopyAbsoluteToRelative();
 				SpriteInstance.AttachTo(this, false);
 			}
-			SpriteInstance.TextureScale = 1f;
 			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.TextureScale = 1f;
 			SpriteInstance.CurrentChainName = "ButtonUp";
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
@@ -220,8 +220,8 @@ namespace WeedQuest.Entities
 			if (callOnContainedElements)
 			{
 			}
-			SpriteInstance.TextureScale = 1f;
 			SpriteInstance.AnimationChains = AnimationChainListFile;
+			SpriteInstance.TextureScale = 1f;
 			SpriteInstance.CurrentChainName = "ButtonUp";
 		}
 		public virtual void ConvertToManuallyUpdated ()

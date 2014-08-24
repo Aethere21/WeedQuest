@@ -1,6 +1,9 @@
 Content\Entities\ExitButton\AnimationChainListFile.achx
 Content\Entities\ExitButton\Buttons.jpg
+Content\Entities\PlatformerCharacterBase\MovementValues.csv
 Content\Entities\StartButton\AnimationChainListFile.achx
+Content\Screens\GameScreen\City.scnx
+Content\Screens\GameScreen\Tileset.png
 Content\Screens\MenuScreen\EmitterListFile.emix
 Content\Screens\MenuScreen\EmitterListFileRight.emix
 Content\Screens\MenuScreen\StartScreen.png
