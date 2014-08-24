@@ -214,9 +214,7 @@ namespace WeedQuest.Entities
 
             if (jumpPushed && 
                 CurrentMovement.JumpVelocity > 0 &&
-                (mIsOnGround || AfterDoubleJump == null || (AfterDoubleJump != null && mHasDoubleJumped == false))
-                
-                )
+                (mIsOnGround || AfterDoubleJump == null || (AfterDoubleJump != null && mHasDoubleJumped == false)))
             {
 
                 mTimeJumpPushed = CurrentTime;

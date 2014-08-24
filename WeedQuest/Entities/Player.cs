@@ -43,7 +43,7 @@ namespace WeedQuest.Entities
 
 		private void CustomInitialize()
 		{
-
+            ArmSprite.AttachTo(this, true);
 
 		}
 
@@ -51,6 +51,10 @@ namespace WeedQuest.Entities
 		{
             AnimationActivity();
             CameraActivity();
+
+            ArmActivity();
+
+            this.DetermineMovementValues();
 		}
 
 		private void CustomDestroy()
@@ -116,5 +120,20 @@ namespace WeedQuest.Entities
             Camera.Main.Velocity.Y = this.Y - Camera.Main.Position.Y + 70;
         }
 
+        private void ArmActivity()
+        {
+            if(this.DirectionFacing == LeftOrRight.Right)
+            {
+                this.ArmSprite.CurrentChainName = "ArmRight";
+            }
+            else
+            {
+                this.ArmSprite.CurrentChainName = "ArmLeft";
+            }
+
+            //ArmSprite.RelativePosition.X = 5;
+            //ArmSprite.RelativePosition.Y = -5;
+            ArmSprite.RelativePosition.Z = 6;
+        }
 	}
 }
