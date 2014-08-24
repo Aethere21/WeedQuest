@@ -75,9 +75,23 @@ namespace WeedQuest.Screens
                     AddShapes(spr.Position, spr.ScaleX, spr.ScaleY, Color.Red, true);
                 }
 
+                if (spr.Name == "CollisionFloor")
+                {
+                    Vector3 pos = spr.Position;
+                    pos.Y -= 8;
+                    AddShapes(pos, spr.ScaleX, (spr.ScaleY ) / 2, Color.Red, true);
+                }
+
                 if(spr.Name == "WallCollision")
                 {
                     AddShapes(spr.Position, spr.ScaleX, spr.ScaleY, Color.Red, true);
+                    spr.Visible = false;
+                }
+
+                if(spr.Name == "BG")
+                {
+                    BackgroundSprite.Position.X = spr.Position.X;
+                    BackgroundSprite.Position.Y = spr.Position.Y;
                     spr.Visible = false;
                 }
             }

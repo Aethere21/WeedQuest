@@ -73,6 +73,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>City</Name>
     </None>
+    <None Include="Screens\GameScreen\CityBack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CityBack</Name>
+    </None>
     <None Include="Screens\GameScreen\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Tileset</Name>

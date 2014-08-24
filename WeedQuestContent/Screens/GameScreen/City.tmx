@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="15" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="75" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
   <image source="Tileset.png" width="256" height="192"/>
   <tile id="3">
    <properties>
-    <property name="Name" value="Collision"/>
+    <property name="Name" value="CollisionFloor"/>
    </properties>
   </tile>
   <tile id="4">
    <properties>
     <property name="Name" value="WallCollision"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="Name" value="BG"/>
    </properties>
   </tile>
   <tile id="23">
@@ -18,14 +23,14 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Main" width="50" height="15">
+ <layer name="Main" width="75" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQG/AMsQxDHBhwZx4MCE1XFjY6GL4xLlw8NHNg2EYEBzieNQfgwuP+mNw4eHkDwB4IhWo
+   eJzt0MEKgCAQAFEPXdpb/f/HRtBJ3LVTYLyBAV1FcFoDAAAAsAIbX3kTA/fC2Z0YrPtZNY9k37+XmZ1Xf5oZT6tjcc+P1EorrbTS6n+tLqXsIfw=
   </data>
  </layer>
- <layer name="Layer 2" width="50" height="15">
+ <layer name="Layer 2" width="75" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjZRj6gBWKhzoY9cfgAuj+kBgoh1AIhmt8DFUw6o/BBUb9MbjAqD8GFxj1x+ACID8AAEkoAK8=
+   eJzt0ssJACAMwFAvOoP7T+oGEqjWD3n3ShssRfpLO73ABvX0Aomit9oqb/4lq1v14Hs3819xtuJsxdmKsxVnK85WnK04W3G24mzFzW4d864AtQ==
   </data>
  </layer>
 </map>

@@ -38,10 +38,12 @@ namespace WeedQuest.Screens
 		#endif
 		protected static FlatRedBall.Scene City;
 		protected static Microsoft.Xna.Framework.Graphics.Texture2D Tileset;
+		protected static Microsoft.Xna.Framework.Graphics.Texture2D CityBack;
 		
 		private FlatRedBall.Scene VisibleRepresentation;
 		private FlatRedBall.Math.Geometry.ShapeCollection TileCollision;
 		private WeedQuest.Entities.Player PlayerInstance;
+		private FlatRedBall.Sprite BackgroundSprite;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -58,6 +60,8 @@ namespace WeedQuest.Screens
 			TileCollision.Name = "TileCollision";
 			PlayerInstance = new WeedQuest.Entities.Player(ContentManagerName, false);
 			PlayerInstance.Name = "PlayerInstance";
+			BackgroundSprite = new FlatRedBall.Sprite();
+			BackgroundSprite.Name = "BackgroundSprite";
 			
 			
 			PostInitialize();
@@ -75,6 +79,7 @@ namespace WeedQuest.Screens
 			VisibleRepresentation.AddToManagers();
 			TileCollision.AddToManagers();
 			PlayerInstance.AddToManagers(mLayer);
+			SpriteManager.AddSprite(BackgroundSprite);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -125,6 +130,7 @@ namespace WeedQuest.Screens
 				City.MakeOneWay();
 			}
 			Tileset = null;
+			CityBack = null;
 			
 			if (VisibleRepresentation != null)
 			{
@@ -139,6 +145,10 @@ namespace WeedQuest.Screens
 				PlayerInstance.Destroy();
 				PlayerInstance.Detach();
 			}
+			if (BackgroundSprite != null)
+			{
+				SpriteManager.RemoveSprite(BackgroundSprite);
+			}
 
 			base.Destroy();
 
@@ -151,6 +161,30 @@ namespace WeedQuest.Screens
 		{
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
+			if (PlayerInstance.Parent == null)
+			{
+				PlayerInstance.Z = 5f;
+			}
+			else
+			{
+				PlayerInstance.RelativeZ = 5f;
+			}
+			BackgroundSprite.Texture = CityBack;
+			if (BackgroundSprite.Parent == null)
+			{
+				BackgroundSprite.Z = -5f;
+			}
+			else
+			{
+				BackgroundSprite.RelativeZ = -5f;
+			}
+			BackgroundSprite.TextureScale = 1f;
+			#if FRB_MDX
+			BackgroundSprite.TextureAddressMode = Microsoft.DirectX.Direct3D.TextureAddress.Wrap;
+			#else
+			BackgroundSprite.TextureAddressMode = Microsoft.Xna.Framework.Graphics.TextureAddressMode.Wrap;
+			#endif
+			BackgroundSprite.ScaleX = 2000f;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
@@ -169,6 +203,10 @@ namespace WeedQuest.Screens
 				TileCollision.RemoveFromManagers(false);
 			}
 			PlayerInstance.RemoveFromManagers();
+			if (BackgroundSprite != null)
+			{
+				SpriteManager.RemoveSpriteOneWay(BackgroundSprite);
+			}
 		}
 		public virtual void AssignCustomVariables (bool callOnContainedElements)
 		{
@@ -176,11 +214,36 @@ namespace WeedQuest.Screens
 			{
 				PlayerInstance.AssignCustomVariables(true);
 			}
+			if (PlayerInstance.Parent == null)
+			{
+				PlayerInstance.Z = 5f;
+			}
+			else
+			{
+				PlayerInstance.RelativeZ = 5f;
+			}
+			BackgroundSprite.Texture = CityBack;
+			if (BackgroundSprite.Parent == null)
+			{
+				BackgroundSprite.Z = -5f;
+			}
+			else
+			{
+				BackgroundSprite.RelativeZ = -5f;
+			}
+			BackgroundSprite.TextureScale = 1f;
+			#if FRB_MDX
+			BackgroundSprite.TextureAddressMode = Microsoft.DirectX.Direct3D.TextureAddress.Wrap;
+			#else
+			BackgroundSprite.TextureAddressMode = Microsoft.Xna.Framework.Graphics.TextureAddressMode.Wrap;
+			#endif
+			BackgroundSprite.ScaleX = 2000f;
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
 			VisibleRepresentation.ConvertToManuallyUpdated();
 			PlayerInstance.ConvertToManuallyUpdated();
+			SpriteManager.ConvertToManuallyUpdated(BackgroundSprite);
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -206,6 +269,10 @@ namespace WeedQuest.Screens
 			{
 			}
 			Tileset = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/tileset.png", contentManagerName);
+			if (!FlatRedBallServices.IsLoaded<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/cityback.png", contentManagerName))
+			{
+			}
+			CityBack = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/cityback.png", contentManagerName);
 			WeedQuest.Entities.Player.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
@@ -218,6 +285,8 @@ namespace WeedQuest.Screens
 					return City;
 				case  "Tileset":
 					return Tileset;
+				case  "CityBack":
+					return CityBack;
 			}
 			return null;
 		}
@@ -229,6 +298,8 @@ namespace WeedQuest.Screens
 					return City;
 				case  "Tileset":
 					return Tileset;
+				case  "CityBack":
+					return CityBack;
 			}
 			return null;
 		}
@@ -240,6 +311,8 @@ namespace WeedQuest.Screens
 					return City;
 				case  "Tileset":
 					return Tileset;
+				case  "CityBack":
+					return CityBack;
 			}
 			return null;
 		}

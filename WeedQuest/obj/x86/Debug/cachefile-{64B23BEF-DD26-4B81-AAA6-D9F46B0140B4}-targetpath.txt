@@ -5,6 +5,7 @@ Content\Entities\Player\AnimationChainListFile.achx
 Content\Entities\Player\PlayerSet.png
 Content\Entities\StartButton\AnimationChainListFile.achx
 Content\Screens\GameScreen\City.scnx
+Content\Screens\GameScreen\CityBack.png
 Content\Screens\GameScreen\Tileset.png
 Content\Screens\MenuScreen\EmitterListFile.emix
 Content\Screens\MenuScreen\EmitterListFileRight.emix

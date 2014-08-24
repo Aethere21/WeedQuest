@@ -123,10 +123,10 @@
       <FlipVertical>false</FlipVertical>
       <TextureName>PlayerSet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>206</LeftCoordinate>
-      <RightCoordinate>237</RightCoordinate>
-      <TopCoordinate>10</TopCoordinate>
-      <BottomCoordinate>56</BottomCoordinate>
+      <LeftCoordinate>189</LeftCoordinate>
+      <RightCoordinate>246</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
       <RelativeX>0</RelativeX>
       <RelativeY>0</RelativeY>
     </Frame>
@@ -139,10 +139,10 @@
       <FlipVertical>false</FlipVertical>
       <TextureName>PlayerSet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>206</LeftCoordinate>
-      <RightCoordinate>237</RightCoordinate>
-      <TopCoordinate>10</TopCoordinate>
-      <BottomCoordinate>56</BottomCoordinate>
+      <LeftCoordinate>189</LeftCoordinate>
+      <RightCoordinate>246</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
       <RelativeX>0</RelativeX>
       <RelativeY>0</RelativeY>
     </Frame>

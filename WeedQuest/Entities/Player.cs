@@ -44,8 +44,8 @@ namespace WeedQuest.Entities
 		private void CustomInitialize()
 		{
             ArmSprite.AttachTo(this, true);
-
-		}
+            ArmCollision.AttachTo(ArmSprite, true);
+        }
 
 		private void CustomActivity()
 		{
@@ -55,6 +55,7 @@ namespace WeedQuest.Entities
             ArmActivity();
 
             this.DetermineMovementValues();
+
 		}
 
 		private void CustomDestroy()
@@ -66,7 +67,7 @@ namespace WeedQuest.Entities
         private static void CustomLoadStaticContent(string contentManagerName)
         {
 
-
+            
         }
 
         private void AnimationActivity()
@@ -120,6 +121,8 @@ namespace WeedQuest.Entities
             Camera.Main.Velocity.Y = this.Y - Camera.Main.Position.Y + 70;
         }
 
+        public bool hitting = false;
+
         private void ArmActivity()
         {
             if(this.DirectionFacing == LeftOrRight.Right)
@@ -131,9 +134,72 @@ namespace WeedQuest.Entities
                 this.ArmSprite.CurrentChainName = "ArmLeft";
             }
 
-            //ArmSprite.RelativePosition.X = 5;
-            //ArmSprite.RelativePosition.Y = -5;
             ArmSprite.RelativePosition.Z = 6;
+            ArmSprite.RelativePosition.Y = 4;
+            ArmCollision.RelativePosition.Y = 8;
+
+            if(DirectionFacing == LeftOrRight.Left)
+            {
+                ArmCollision.RelativePosition.X = -25;
+            }
+            else
+            {
+                ArmCollision.RelativePosition.X = 25;
+            }
+
+            //------------------------------------------
+
+            if(InputManager.Keyboard.KeyReleased(Keys.E))
+            {
+                if(hitting == false)
+                {
+                    hitting = true;
+                }
+                //ArmSprite.RelativeRotationZ -= 0.1f;
+            }
+
+            if(hitting == true)
+            {
+                if(DirectionFacing == LeftOrRight.Right)
+                {
+                    if (ArmSprite.RelativeRotationZ >= 5f && ArmSprite.RelativeRotationZ <=5.1f)
+                    {
+                        ArmSprite.RelativeRotationZVelocity = 0;
+                        hitting = false;
+                    }
+                    else
+                    {
+                        ArmSprite.RelativeRotationZVelocity = -5f;
+                    }                    
+                }
+                else
+                {
+                    if (ArmSprite.RelativeRotationZ >= 1f && ArmSprite.RelativeRotationZ <= 1.1f)
+                    {
+                        ArmSprite.RelativeRotationZVelocity = 0;
+                        hitting = false;
+                    }
+                    else
+                    {
+                        ArmSprite.RelativeRotationZVelocity = 5f;
+                    }                    
+                }
+            }
+            else
+            {
+                if(DirectionFacing == LeftOrRight.Right)
+                {
+                    ArmSprite.RelativeRotationZ = 1.1f;
+                }
+                else
+                {
+                    ArmSprite.RelativeRotationZ = -1.1f;
+                }
+            }
+
+
+            FlatRedBall.Debugging.Debugger.Write(ArmSprite.RelativeRotationZ);
+
         }
 	}
 }
